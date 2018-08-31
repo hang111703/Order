@@ -13,8 +13,6 @@ and open the template in the editor.
         <?php
         // put your code here
         echo 'hello world !';
-        echo 'repeat now';
-        echo 'again' ;
         ?>
     </body>
 </html>
