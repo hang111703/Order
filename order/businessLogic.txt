@@ -1,0 +1,93 @@
+# 使用、开发、修改或调试过程中找到的文件之间商业逻辑关系－－2018/09/03
+
+2018/04/22
+发现在电脑端应用-请选择您要操作的应用>筋斗云营销-业务菜单>顾客管理－会员管理的网页是：addons/weisrc_dish/template/web/allfans.html，对应的控制文件是：addons/weisrc_dish/inc/web/allfans.inc.php。
+发现在电脑端应用-请选择您要操作的应用>筋斗云营销－业务菜单>门店管理-门店管理>管理－系统设置>顾客管理-会员管理的网页是：addons/weisrc_dish/template/web/fans.html，对应的控制文件是：addons/weisrc_dish/inc/web/fans.inc.php。
+发现在电脑端公众号-粉丝>会员管理>会员中心的网址：http://orderamz.oneap.net/app/index.php?i=2&c=mc&　。
+发现在电脑端公众号-配置－支付参数－支付配置下边有７个支付功能：余额支付、支付宝支付、微信支付、银联支付、百度钱包支付和汇款支付，但在微信订餐中最多只有前面４个支付功能，即使开启了另外３个功能，对微信订餐是没有作用的。
+发现这是微信公众号：明达无线，微信用户：经常忘记，身份进入到订餐业务的主页网址。http://orderamz.oneap.net/app/index.php?i=2&c=entry&do=index&m=weisrc_dish&lat=30.25924446&lng=120.21937542
+发现微信手机端的确认订单网页是addons/weisrc_dish/template/mobile/style1/menu.html，对应的逻辑控制文件是addons/weisrc_dish/inc/mobile/wapmenu.inc.php　。
+发现微信手机端的支付订单网页是app/themes/default/common/paycenter.html，对应的逻辑控制在addons/weisrc_dish/site.php文件的public function doMobilePay()里。
+发现微信手机端的支付订单-支付宝支付的网页payment/alipay/pay.htm。
+发现支付宝发生支付后，会在以下２个文件中记录信息，文件分别是data/logs/20180506.log和addons/weisrc_dish/params.log，其中第１个文件是会随日期的增加而增加。第１个日期文件甚至没有发生支付宝交易的时间，也会产生记录，不知是基于什么原理？
+
+2018/05/04
+发现支付宝完成后的控制文件payment/alipay/return.php, 调用的方法public function payResult($params)在addons/weisrc_dish/site.php文件里。在return.php添加了代表通过支付宝完成支付的paytype参数，解决了支付宝在浏览器里支付完成后，提示的信息不友好问题。
+
+2018/05/07
+发现充值返现赠送的金额必须是整数元，不能有小数点，因为数据库设置的字段是整数形。如果设置了分期赠送，则会按照分期次数，每隔１个月进行赠送，同时赠送的金额均分。例如：某活动充１００元送２０元，分２期返还，而活动的期限是七天（一周）。则用户实际得到的情况是：当天有１０元生效，因此，用户得到的充值金额是１１０元，另外的１０元，需要经过1个月后才能生效，变成用户的金额。
+发现电脑端应用-请选择您要操作的应用>筋斗云营销－业务菜单>门店管理-门店管理>管理>营销>添加优惠的网页是：addons/weisrc_dish/template/web/coupon.html，对应的控制文件是：addons/weisrc_dish/inc/web/coupon.inc.php
+发现电脑端应用-请选择您要操作的应用>筋斗云营销－业务菜单>门店管理-门店管理>管理>营销>领取记录的网页是：addons/weisrc_dish/template/web/sncodelist.html，对应的控制文件是：addons/weisrc_dish/inc/web/sncodelist.inc.php
+
+2018/05/11
+发现电脑端应用-请选择您要操作的应用>筋斗云营销－业务菜单>充值返现的网页addons/weisrc_dish/template/web/recharge.html，对应的控制文件是：addons/weisrc_dish/inc/web/recharge.inc.php .
+发现微信手机端>用户中心>充值返现的网页addons/weisrc_dish/template/mobile/style1/recharge_form.html，对应的控制文件是：addons/weisrc_dish/inc/mobile/recharge.inc.php
+
+2018/05/15
+发现电脑端应用-请选择您要操作的应用>筋斗云营销－业务菜单>门店管理-门店管理>管理－数据管理>酒水寄存的网页addons/weisrc_dish/template/web/savewine.html，对应的控制文件是addons/weisrc_dish/inc/web/savewine.inc.php 。
+发现电脑端应用-请选择您要操作的应用>筋斗云营销－业务菜单>门店管理-门店管理>管理－数据管理>评论管理的网页addons/weisrc_dish/template/web/feedback.html，对应的控制文件是addons/weisrc_dish/inc/web/feedback.inc.php 。整个评论管理做得比较简陋，没有查找的功能，如果用户的评论很多时，会显得无法快速处理。
+
+2018/05/16
+发现电脑端应用-请选择您要操作的应用>筋斗云营销－业务菜单>配送管理>管理配送点的网页是addons/weisrc_dish/template/web/deliveryarea.html，对应的控制文件是addons/weisrc_dish/inc/web/deliveryarea.inc.php 。
+
+2018/05/18
+发现电脑端应用-请选择您要操作的应用>筋斗云营销－业务菜单>配送管理>管理配送员的网页addons/weisrc_dish/template/web/delivery.html，对应的控制文件是addons/weisrc_dish/inc/web/delivery.inc.php
+
+2018/05/23
+发现微信手机端>我的订单-某个订单的网页是:addons/weisrc_dish/template/mobile/style1/orderdetail.html， 对应的控制文件是:addons/weisrc_dish/inc/mobile/orderdetail.inc.php。
+
+2018/05/26
+发现电脑端应用-请选择您要操作的应用>筋斗云营销－业务菜单>配送管理>配送提现管理的网页addons/weisrc_dish/template/web/cashlog.html，对应的控制文件是addons/weisrc_dish/inc/web/cashlog.inc.php。另外，电脑端应用-请选择您要操作的应用>筋斗云营销－业务菜单>顾客管理>佣金提现管理的网页和对应的控制文档也是完全相同的。
+
+2018/05/28
+发现微信手机的平台首页网址：http://orderamz.oneap.net/app/index.php?i=2&c=entry&m=weisrc_dish&do=index，对应的网页是：addons/weisrc_dish/template/mobile/style1/index.html
+
+2018/05/30
+发现微信手机的平台首页>某个店家-该店家详细情况的网页是:addons/weisrc_dish/template/mobile/style1/detail.html，对应的控制文件addons/weisrc_dish/inc/mobile/detail.inc.php。
+发现微信手机的平台首页>某个店家-该店家详细情况>店内、外卖、快餐显示的网页是addons/weisrc_dish/template/mobile/style1/list.html，对应的控制文件addons/weisrc_dish/inc/mobile/waplist.inc.php。
+发现微信手机的平台首页>某个店家-该店家详细情况>预订显示的网页是addons/weisrc_dish/template/mobile/style1/reservation_index.html，对应的控制文件addons/weisrc_dish/inc/mobile/reservationindex.inc.php
+发现微信手机的平台首页>某个店家-该店家详细情况>排队显示的网页是addons/weisrc_dish/template/mobile/style1/queue.html，对应的控制文件addons/weisrc_dish/inc/mobile/queue.inc.php。
+发现微信手机的平台首页>某个店家-该店家详细情况>排队>我要取号显示的网页是addons/weisrc_dish/template/mobile/style1/queue_form.html，对应的控制文件addons/weisrc_dish/inc/mobile/queueform.inc.php。
+发现微信手机的平台首页>某个店家-该店家详细情况>存酒的网页是addons/weisrc_dish/template/mobile/style1/savewine_form.html，对应的控制文件addons/weisrc_dish/inc/mobile/savewineform.inc.php
+发现微信手机的平台首页>某个店家-该店家详细情况>收银的网页是addons/weisrc_dish/template/mobile/style1/pay_form.html，对应的控制文件addons/weisrc_dish/inc/mobile/payform.inc.php。
+
+2018/05/31
+发现电脑端应用-请选择您要操作的应用>筋斗云营销－业务菜单>门店管理-门店管理>管理－店内设置>餐桌类型－餐桌类型的网页addons/weisrc_dish/template/web/table_zones.html，对应的控制文件addons/weisrc_dish/inc/web/tablezones.inc.php。
+发现电脑端应用-请选择您要操作的应用>筋斗云营销－业务菜单>门店管理-门店管理>管理－店内设置>预订管理－预订时间的网页addons/weisrc_dish/template/web/reservation.html，对应的控制文件addons/weisrc_dish/inc/web/reservation.inc.php。
+
+2018/06/01
+发现微信手机的平台首页>某个店家－该店家详细情况>预订－预订时间>某个可以预订的时间-预订订单>联系方式显示的网页是addons/weisrc_dish/template/mobile/style1/address.html，对应的控制文件是addons/weisrc_dish/site.php中的function doMobileUserAddress方法。另外，微信手机的我的－用户中心>收货地址显示的网页也是这个文件;微信手机的平台首页>某个店家-该店家详细情况>外卖-外卖菜单>我选好了-确认订单>收餐地址显示的网页也是这个文件。
+
+2018/06/02
+发现微信手机的平台首页>某个店家-该店家详细情况-优惠信息及券,来自电脑端应用-请选择您要操作的应用>筋斗云营销－业务菜单>门店管理-门店管理>管理-系统设置>门店信息>外链设置，在a外链名称和外链地址输入信息。允许最多输入３个外链，会显示在该店家的详细情况中。
+发现微信手机的平台首页>某个店家-该店家详细情况>快餐-快餐菜单>我选好了-确认订单的网页是addons/weisrc_dish/template/mobile/style1/menu.html，对应的控制文件addons/weisrc_dish/inc/mobile/wapmenu.inc.php。另外，页面中还有我要加菜功能的控制文件addons/weisrc_dish/inc/mobile/addtoorder.inc.php
+发现电脑端应用-请选择您要操作的应用>筋斗云营销－业务菜单>门店管理-门店管理>管理－店内设置>排队管理-客人队列-客人队列列表>当前排队人数显示的网页是addons/weisrc_dish/template/web/queueorder.html，对应的控制文件addons/weisrc_dish/inc/web/queueorder.inc.php。
+
+2018/06/06
+发现电脑端应用-请选择您要操作的应用>筋斗云营销－业务菜单>商户提现－提现设置的网页是addons/weisrc_dish/template/web/business.html，对应的控制文件addons/weisrc_dish/inc/web/business.inc.php。另外，电脑端应用-请选择您要操作的应用>筋斗云营销－业务菜单>商户提现－提现管理的网页addons/weisrc_dish/template/web/stores_adminbusinesslog.html，也是同一个控制文件。
+
+2018/06/11
+发现电脑端应用-请选择您要操作的应用>筋斗云营销－业务菜单>门店管理-门店管理>管理－系统设置>订单管理-筛选>并单功能,只有在店内消费的订单才能进行并单。如果并单了，就无法对餐桌临时加菜等操作。否则，结果就不正确了。
+发现电脑端>公众号－配置－支付参数-支付配置-微信支付>修改>选择微信支付、新版等参数后>确定，完成了微信支付的初步配置，另外，电脑端>公众号－配置－支付参数-退款配置－微信退款>修改,微信商户平台(pay.weixin.qq.com)-->账户中心-->账户设置-->API安全-->证书下载。仅用到apiclient_cert.pem 和 apiclient_key.pem这两个证书，点击开启、确定按钮，完成了微信退款的配置。接着，电脑端应用-请选择您要操作的应用>筋斗云营销－业务菜单>系统设置－系统设置>支付方式-支付方式设置-微信设置>开启,上传CERT证书文件和KEy证书密钥，点击保存设置。至此，微信支付的配置才完成。其中CERT证书和KEy证书密钥这2个文件需要在系统中分别上传2次。一旦完成微信支付或微信退款，可以在微信商户平台(pay.weixin.qq.com)－交易中心－交易管理－交易订单－交易订单－批量订单查询下看到支付的情况。如果发生退款，在每笔支付款项后面，也能看到查询退款单。
+
+2018/06/14
+发现微信手机的用户中心>商家订单管理>1份新订单的网页是addons/weisrc_dish/template/mobile/style1/admin_orderdetail.html，对应的控制文件有addons/weisrc_dish/inc/mobile/adminorderdetail.inc.php和addons/weisrc_dish/inc/mobile/setadminorder.inc.php。其中文件setadminorder.inc.php是用来对网页中点击按钮进行处理的。
+发现电脑端>公众号－配置>支付参数-支付配置\退款配置的网页是web/themes/default/profile/refund.html，对应的控制文件是web/source/profile/refund.ctrl.php。
+
+2018／06／23
+发现电脑端应用-请选择您要操作的应用>筋斗云营销－业务菜单>订单中心-订单管理的网页addons/weisrc_dish/template/web/allorder.html，对应的控制文件addons/weisrc_dish/inc/web/allorder.inc.php。
+发现电脑端应用-请选择您要操作的应用>筋斗云营销－业务菜单>订单中心-订单管理－选中1个订单>详情，显示该订单的详细情况。这个详情的网页是addons/weisrc_dish/template/web/order_detail.html，对应的控制文件是：addons/weisrc_dish/inc/web/allorder.inc.php。网页中退菜的逻辑控制是addons/weisrc_dish/site.php的public function doWebRetreat()函数。
+发现电脑端应用-请选择您要操作的应用>筋斗云营销－业务菜单>门店管理-门店管理>管理－数据管理>商品管理-商品管理的网页是addons/weisrc_dish/template/web/goods.html，对应的控制文件addons/weisrc_dish/inc/web/goods.inc.php。
+
+2018/07/03
+在数据库端创建了一个视图。创建的语句：
+create view ims_weisrc_dish_goods_view as select a.id as id,a.storeid as storeid,a.weid as weid,a.pcate as pcate,a.deleted as deleted,(case a.isoptions when 1 then CONCAT(a.title ,'[', b.title,']') else a.title end) as title,
+a.thumb as thumb,a.status as status,a.week as week, a.marketprice +  IFNULL(b.price,0) as marketprice,packvalue as packvalue, a.counts as counts,a.today_counts as today_counts,b.id as optionid ,b.title as optionname
+from ims_weisrc_dish_goods a left join ims_weisrc_dish_goods_option b on a.id = b.goodsid ;
+
+2018/07/13
+发现微信手机的我的订单>店内订单，状态是现金支付未支付>我要加菜，选择有属性的商品，我选好了>确认加菜，如果原先的订单中已经有属性的商品，显示的商品名称或数量有错误。问题已经解决，在控制文件addons/weisrc_dish/inc/mobile/addtoorder.inc.php的第295行开始处作较大的修改。
+2018/07/20
+发现微信手机的平台首页>某个店家-该店家详细情况>快餐、外卖和堂食>显示快餐、外卖和堂食菜单>智能推荐,显示的网页是addons/weisrc_dish/template/mobile/style1/select_list.html，对应的控制文件是addons/weisrc_dish/inc/mobile/wapselectlist.inc.php 。另外，把智能推荐的商品加入菜单时，需要通过的控制文件是addons/weisrc_dish/inc/mobile/addtomenu.inc.php。
+发现电脑端应用-请选择您要操作的应用>筋斗云营销－业务菜单>门店管理-门店管理>管理－数据管理>智能推荐显示的网页是addons/weisrc_dish/template/web/intelligent.html,对应的控制文件是addons/weisrc_dish/inc/web/intelligent.inc.php。
+发现电脑端－公众号>粉丝-会员管理-会员管理的网页是web/themes/default/mc/member.html，对应的控制文件是web/source/mc/member.ctrl.php。
