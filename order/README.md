@@ -6,4 +6,4 @@
 12345，再回退到原生的吗？
 
 
-this is  add now 2018-09-09
+this is  add now  in github
