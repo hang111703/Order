@@ -13,3 +13,5 @@ this is  add now  in github
 
 
 现在测试一下 server question
+
+insert git server some english now ;
