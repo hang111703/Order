@@ -1,3 +1,4 @@
 # demo
 重新开始
 在客户端增加2个文件
+server insert 1 line
