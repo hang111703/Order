@@ -7,6 +7,4 @@ server insert 1 line
 
 跟远程服务器文件的差别
 
-new add  123
-
-this add in server
+这是在我的分支上修改文件。
