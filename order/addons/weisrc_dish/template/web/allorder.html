@@ -33,7 +33,7 @@
 <div class="main">
     <div class="alert alert-info">
         <i class="fa fa-info-circle"></i>提示：<br/>
-        1.未处理订单表示商家未接单，确认订单表示商家已接单，完成订单表示交易成功，若设置积分顾客可以获得积分。<br/>
+        1.待处理订单表示商家未接单，确认订单表示商家已接单，完成订单表示交易成功，若设置积分顾客可以获得积分。<br/>
         2.完成和取消操作才有信息提醒用户，其它操作想信息提醒，请勾选单子后点通知按钮。
     </div>
     <div class="panel panel-default">
@@ -152,7 +152,7 @@
                 <div class="span3 control-group">
                     总订单:<strong class="text-danger">{$total}</strong>
                     {if $order_count > 0}
-                    ,未处理订单:<strong class="text-danger">{$order_count}</strong>
+                    ,待处理订单:<strong class="text-danger">{$order_count}</strong>
                     {/if}
                     ,订单总金额:<strong class="text-danger">{$order_price}</strong>
                 </div>
