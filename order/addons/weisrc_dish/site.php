@@ -4757,7 +4757,7 @@ DESC ", array(':weid' => $this->_weid, ':storeid' => $storeid));
 //                message($tip_msg, $url, 'success');
                 //如果阿里支付完成后，仅显示支付成功提示，并告诉用户返回到微信内操作操作 -2018/05/09
                 if ($params['paytype'] == 'alipay') {
-                   message($tip_msg.'，请返回到微信内操作！', '', 'info'); 
+                   message($tip_msg.'，请返回微信继续使用！', '', 'success'); 
                 }else {
                    message($tip_msg, $url, 'success'); 
                 }
