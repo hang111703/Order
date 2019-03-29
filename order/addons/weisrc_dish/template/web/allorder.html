@@ -164,7 +164,7 @@
                 <table class="table  table-bordered">
                     <thead class="navbar-inner">
                         <tr>
-                            <th class='with-checkbox' style="width:2%;"><input type="checkbox" class="check_all" /></th>
+                            <th class='with-checkbox' style="width:2%;"><input type="checkbox"  class="check_all" /></th>
                             <th style="width:6%;text-align: center;">编号</th>
                             <th style="width:8%;text-align: center;">订单总额</th>
                             <th style="width:20%;text-align: center;">联系信息</th>
@@ -431,7 +431,18 @@
         $(".check_all").click(function () {
             var checked = $(this).get(0).checked;
             //以下语句有错误，只能执行一次，第二次就不执行了 -2018/06/26
-            $("input[type=checkbox]").attr("checked", checked);
+//            $("input[type=checkbox]").attr("checked", checked);
+//            window.alert('点击后显示:' + checked);
+            var cks = document.getElementsByName("check");
+            if (checked) {
+                for ( var i = 0; i < cks.length; i++) {
+                     cks[i].checked = true;
+                }
+            } else {
+                for ( var i = 0; i < cks.length; i++) {
+                    cks[i].checked = false;
+                }
+            }
         });
 
         $("input[name=btn_printall]").click(function () {

@@ -494,7 +494,17 @@
 
         $(".check_all").click(function () {
             var checked = $(this).get(0).checked;
-            $("input[type=checkbox]").attr("checked", checked);
+//            $("input[type=checkbox]").attr("checked", checked);
+            var cks = document.getElementsByName("check");
+            if (checked) {
+                for ( var i = 0; i < cks.length; i++) {
+                     cks[i].checked = true;
+                }
+            } else {
+                for ( var i = 0; i < cks.length; i++) {
+                    cks[i].checked = false;
+                }
+            }
         });
 
         $("input[name=btn_printall]").click(function () {
