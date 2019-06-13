@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="<?php  echo $this->cur_mobile_path?>/css/order-new.css?v=8"/>
     <link rel="stylesheet" type="text/css" href="<?php  echo $this->cur_mobile_path?>/css/fakeLoader.css">
     <script src="<?php  echo $this->cur_mobile_path?>/script/jquery-1.8.3.min.js"></script>
-    <script type="text/javascript" src="https://api.map.baidu.com/api?ak=qen1OGw9ddzoDQrTX35gote2&v=2.0&services=false"></script>
+    <script type="text/javascript" src="https://api.map.baidu.com/api?ak=4C0qai9sZC5KznMdt0FV4B7QlG9Nus1X&v=2.0&services=false"></script>
     <link rel="stylesheet" href="<?php  echo $this->cur_mobile_path?>/mvalidate/validate.css" />
     <script type="text/javascript" src="<?php  echo $this->cur_mobile_path?>/mvalidate/jquery-mvalidate.js" ></script>
 </head>

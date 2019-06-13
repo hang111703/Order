@@ -101,3 +101,7 @@ if ($storeid != 0 && $mode == 3) {  //预订
 
 2019/03/29
 发现问题：电脑端应用-应用－筋斗云营销－业务菜单－订单中心>编号左边的全选框，第一次点击选中，当前页面所有的订单都选中了，第二次点击取消选中，当前页面所有的订单都取消了选中，第三次点击，再次选中，此时，所有的订单并没有选中。在店家的订单管理中也有相同的问题。此问题已经解决。在文件addons/weisrc_dish/template/web/allorder.html中的$("input[type=checkbox]").attr("checked", checked);语法有问题，改用其他办法处理。但语法为啥错误还不知道原因。
+
+2019/04/28
+发现问题：微信手机的平台首页>某个店家－该店家详细情况>快餐－快餐菜单>选择几个商品添加>我选好了－确认订单，弹出：百度未授权使用地图API，可能是因为您提供的密钥不是有效的百度LBS开放平台密钥，等提示。相同的问题还在编辑地址网页，用户中心 此问题已经解决。在百度lbsyun.baidu.com网站上申请浏览器端的密钥，把得到的1个密钥，替换原先的密钥。
+发现问题：发现微信手机的平台我的>用户中心的网页data/tpl/app/default/weisrc_dish/style1/2_usercenter.tpl.php跟addons/weisrc_dish/template/mobile/style1/usercenter.html几乎相同，不知什么原因要有这个文件。类似的情况还有：相同目录下的2_address.tpl.php、2_deliveryorder.tpl.php、2_menu.tpl.php、2_orderdetail.tpl.php和对应的相同目录下的文件：address.html、deliveryorder.html、deliveryorderdetail.html、menu.html、orderdetail.html

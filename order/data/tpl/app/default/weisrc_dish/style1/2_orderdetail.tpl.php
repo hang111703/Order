@@ -12,7 +12,7 @@
     <title><?php  echo $setting['title'];?></title>
     <link data-turbolinks-track="true" href="<?php echo RES;?>/mobile/<?php  echo $this->cur_tpl?>/assets/diandanbao/weixin.css?v=1" media="all" rel="stylesheet">
     <script src="<?php echo RES;?>/mobile/<?php  echo $this->cur_tpl?>/assets/diandanbao/jquery-1.11.3.min.js"></script>
-    <script type="text/javascript" src="https://api.map.baidu.com/api?ak=qen1OGw9ddzoDQrTX35gote2&v=2.0&services=false"></script>
+    <script type="text/javascript" src="https://api.map.baidu.com/api?ak=4C0qai9sZC5KznMdt0FV4B7QlG9Nus1X&v=2.0&services=false"></script>
     <style type="text/css">@media screen {
         .smnoscreen {
             display: none

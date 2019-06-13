@@ -91,3 +91,16 @@ from ims_weisrc_dish_goods a left join ims_weisrc_dish_goods_option b on a.id = 
 发现微信手机的平台首页>某个店家-该店家详细情况>快餐、外卖和堂食>显示快餐、外卖和堂食菜单>智能推荐,显示的网页是addons/weisrc_dish/template/mobile/style1/select_list.html，对应的控制文件是addons/weisrc_dish/inc/mobile/wapselectlist.inc.php 。另外，把智能推荐的商品加入菜单时，需要通过的控制文件是addons/weisrc_dish/inc/mobile/addtomenu.inc.php。
 发现电脑端应用-请选择您要操作的应用>筋斗云营销－业务菜单>门店管理-门店管理>管理－数据管理>智能推荐显示的网页是addons/weisrc_dish/template/web/intelligent.html,对应的控制文件是addons/weisrc_dish/inc/web/intelligent.inc.php。
 发现电脑端－公众号>粉丝-会员管理-会员管理的网页是web/themes/default/mc/member.html，对应的控制文件是web/source/mc/member.ctrl.php。
+
+2019/04/27
+发现电脑端应用-请选择您要操作的应用>筋斗云营销－业务菜单>门店管理-门店管理>管理－系统设置>门店信息－门店信息>基本信息的网页data/tpl/web/default/weisrc_dish/web/2_stores_tab_basic.tpl.php
+发现电脑端应用-请选择您要操作的应用>筋斗云营销－业务菜单>配送管理>配送员管理的网页data/tpl/web/default/weisrc_dish/web/2_delivery.tpl.php
+发现电脑端应用-请选择您要操作的应用>筋斗云营销－业务菜单>顾客管理>会员管理的网页data/tpl/web/default/weisrc_dish/web/2_allfans.tpl.php
+发现电脑端应用-请选择您要操作的应用>筋斗云营销－业务菜单>门店管理-门店管理>管理－系统设置>顾客管理的网页data/tpl/web/default/weisrc_dish/web/2_fans.tpl.php
+发现电脑端应用-请选择您要操作的应用>筋斗云营销－业务菜单>顾客管理>推广雇金管理的data/tpl/web/default/weisrc_dish/web/2_commission.tpl.php
+
+2019/04/28
+发现微信手机的平台首页>某个店家－该店家详细情况>快餐－快餐菜单>选择几个商品添加>我选好了－确认订单的网页是data/tpl/app/default/weisrc_dish/style1/2_menu.tpl.php
+发现微信手机的平台我的>用户中心的网页是data/tpl/app/default/weisrc_dish/style1/2_usercenter.tpl.php
+
+
